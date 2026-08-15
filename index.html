@@ -186,8 +186,6 @@ details b{color:var(--grn)}
 .lk s{display:block;font-size:11.5px;color:var(--mut);text-decoration:none;margin-top:5px}
 .lk u{display:block;font-size:10px;letter-spacing:.18em;color:var(--gd);text-decoration:none;
   margin-top:10px;text-transform:uppercase}
-.tbd{border-style:dashed;cursor:pointer}
-.tbd u{color:var(--amb)}
 /* footer */
 footer{border-top:1px solid var(--line);padding:30px 0 46px;text-align:center;font-size:11.5px;
   color:var(--mut);line-height:1.8}
@@ -207,7 +205,7 @@ footer b{color:var(--gd);font-weight:400}
   <i></i>
   <a href="https://bankr.bot/terminal" target="_blank" rel="noopener">Bankr</a>
   <a href="https://opensea.io/collection/okcomputers" target="_blank" rel="noopener">NFT</a>
-  <a href="#buy" id="topbuy">Buy</a>
+  <a href="https://pools.fun/token/0x07ad3ece2e21778b9fab7d950bec96a1b43bee96" target="_blank" rel="noopener">Buy</a>
 </div></div>
 
 <div class="mq"><div>
@@ -230,9 +228,15 @@ footer b{color:var(--gd);font-weight:400}
   <div class="poke">↑ poke bud · <a href="https://opensea.io/collection/okcomputers" target="_blank" rel="noopener">ok computer #4533 ↗</a></div>
 
   <div class="cta" id="buy">
-    <a class="btn buy" id="buybtn" href="#">Buy $BANKRBUD <small>POOLS.FUN</small></a>
+    <a class="btn buy" href="https://pools.fun/token/0x07ad3ece2e21778b9fab7d950bec96a1b43bee96" target="_blank" rel="noopener">Buy $BANKRBUD <small>POOLS.FUN</small></a>
     <a class="btn bnk" href="https://bankr.bot/terminal" target="_blank" rel="noopener">Open Bankr <small>TERMINAL</small></a>
   </div>
+
+  <div class="addr" style="justify-content:center;max-width:540px;margin:22px auto 0">
+    <span>CONTRACT</span><code id="ca">0x07ad3ece2e21778b9fab7d950bec96a1b43bee96</code>
+    <button class="btn" style="padding:5px 10px;font-size:10px" data-c="#ca">Copy</button>
+  </div>
+  <p class="sub mut" style="font-size:11px">Base · verify before you trade. Bud will not check for you.</p>
 </div>
 
 <section class="rv">
@@ -265,7 +269,7 @@ footer b{color:var(--gd);font-weight:400}
     <div>
       <h3>Buy pressure that never sells</h3>
       <p>A burn is the one buyer that can't change its mind. The $BNKR Bud buys will never hit a bid again — <b>it leaves the float permanently</b>. Bud does not take profit. Bud cannot take profit. Bud has no hands, only a furnace.</p>
-      <div class="addr"><span>BURN ADDRESS</span><code id="addr">0x000000000000000000000000000000000000dEaD</code><button class="btn" style="padding:5px 10px;font-size:10px" id="cp">Copy</button></div>
+      <div class="addr"><span>BURN ADDRESS</span><code id="addr">0x000000000000000000000000000000000000dEaD</code><button class="btn" style="padding:5px 10px;font-size:10px" data-c="#addr">Copy</button></div>
     </div>
   </div>
 </section>
@@ -302,8 +306,8 @@ footer b{color:var(--gd);font-weight:400}
   <div class="links">
     <a class="lk pnl" href="https://bankr.bot/terminal" target="_blank" rel="noopener">
       <b>Bankr Terminal ↗</b><s>The onchain agent Bud burns for. Type at it, it does things.</s><u>bankr.bot/terminal</u></a>
-    <a class="lk pnl tbd" id="pool" href="#">
-      <b>Buy $BANKRBUD ↗</b><s>The pool on pools.fun. Every trade feeds the furnace.</s><u>link goes live at launch</u></a>
+    <a class="lk pnl" href="https://pools.fun/token/0x07ad3ece2e21778b9fab7d950bec96a1b43bee96" target="_blank" rel="noopener">
+      <b>Buy $BANKRBUD ↗</b><s>The pool on pools.fun. Every trade feeds the furnace.</s><u>pools.fun ↗</u></a>
     <a class="lk pnl" href="https://opensea.io/collection/okcomputers" target="_blank" rel="noopener">
       <b>OK Computers ↗</b><s>Bud's home collection. He is #4533. The other ones don't have jobs.</s><u>opensea.io/collection/okcomputers</u></a>
   </div>
@@ -326,13 +330,6 @@ footer b{color:var(--gd);font-weight:400}
 var $=function(s){return document.querySelector(s)};
 
 /* ------------------------------------------------------------------
-   POOL URL — paste the pools.fun link here when the pool goes live:
-     var POOL="https://pools.fun/token/0xABC...";
-   Left empty, the buy buttons show a "not live yet" toast instead.
------------------------------------------------------------------- */
-var POOL="";
-
-/* ------------------------------------------------------------------
    NFT IMAGE — optional. The mascot is drawn in code below for ~1KB.
    To ship the real artwork instead, paste a Base64 data URI here:
      var IMG="data:image/png;base64,iVBORw0KGgo...";
@@ -344,21 +341,10 @@ var toastEl=$("#toast"),tT;
 function toast(m){toastEl.textContent=m;toastEl.className="on";
   clearTimeout(tT);tT=setTimeout(function(){toastEl.className=""},2600)}
 
-/* buy buttons */
-[$("#buybtn"),$("#pool"),$("#topbuy")].forEach(function(el){
-  if(!el)return;
-  if(POOL){
-    el.href=POOL;el.target="_blank";el.rel="noopener";
-    if(el.id==="pool"){el.classList.remove("tbd");el.querySelector("u").textContent="pools.fun"}
-  }else{
-    el.onclick=function(e){e.preventDefault();
-      toast("Pool isn't live yet — Bud is still booting. Check back at launch.")}
-  }
-});
-
-/* copy burn address */
-$("#cp").onclick=function(){
-  var t=$("#addr").textContent.trim();
+/* copy buttons: data-c points at the element holding the text */
+var cps=document.querySelectorAll("[data-c]");
+for(var c=0;c<cps.length;c++)cps[c].onclick=function(){
+  var t=$(this.getAttribute("data-c")).textContent.trim();
   if(navigator.clipboard)navigator.clipboard.writeText(t).then(function(){toast("Copied "+t.slice(0,10)+"…")},function(){toast(t)});
   else toast(t);
 };
