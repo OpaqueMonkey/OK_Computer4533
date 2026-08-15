@@ -1,6 +1,6 @@
-# $BANKRBUD
+# $BNKRBUD
 
-Onchain landing page for $BANKRBUD, a token on Base launched via pools.fun.
+Onchain landing page for $BNKRBUD, a token on Base launched via pools.fun.
 95% of the deployer's trading fees buy $BNKR on the open market and burn it.
 
 Mascot is **OK Computer #4533**, drawn as a 32x32 pixel sprite in code.
