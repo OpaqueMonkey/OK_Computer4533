@@ -1,0 +1,132 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$BANKRBUD — the little bud that burns $BNKR</title> <style>:root{--bg:#06090a;--pnl:#0d1517;--line:#1d3a33;--grn:#5cff9d;--gd:#2fae6a;--ink:#cdfadd;--mut:#6f9584;--amb:#ffb638;--emb:#ff5f1f;--m:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}*{box-sizing:border-box}body{margin:0;background:radial-gradient(1200px 700px at 50% -10%,#0d2119,transparent 60%),radial-gradient(900px 600px at 90% 110%,#1a0d06,transparent 55%),var(--bg);color:var(--ink);font:16px/1.55 var(--m);overflow-x:hidden}a{color:var(--gd)}#crt{position:fixed;inset:0;pointer-events:none;z-index:99}#crt::before{content:"";position:absolute;inset:0;opacity:.55;background:repeating-linear-gradient(180deg,rgba(0,0,0,.28) 0 1px,transparent 1px 3px)}#crt::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 50%,transparent 55%,rgba(0,0,0,.75))}.pnl{border:1px solid var(--line);border-radius:12px;background:var(--pnl)}.mut{color:var(--mut)}.wrap{max-width:940px;margin:0 auto;padding:0 18px;position:relative;z-index:2}.top{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);background:rgba(10,18,16,.92);backdrop-filter:blur(6px)}.top>div{max-width:940px;margin:0 auto;padding:9px 18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:11px;letter-spacing:.12em;text-transform:uppercase}.top b{color:var(--grn);letter-spacing:.14em}.top i{flex:1}.top a{border:1px solid var(--line);border-radius:6px;padding:4px 10px;text-decoration:none;color:var(--ink)}.top a:hover{border-color:var(--grn);color:var(--grn)}.dot{width:6px;height:6px;border-radius:50%;background:var(--amb);display:inline-block;animation:bl 1.4s infinite}@keyframes bl{50%{opacity:.15}}.mq{overflow:hidden;border-bottom:1px solid var(--line);background:#080d0e}.mq div{display:inline-block;white-space:nowrap;padding:6px 0;color:var(--gd);font-size:11.5px;letter-spacing:.16em;animation:sl 26s linear infinite}.mq span{padding:0 22px}.mq em{color:var(--emb);font-style:normal}@keyframes sl{to{transform:translateX(-50%)}}.hero{padding:54px 0 30px;text-align:center}.kick{font-size:11px;letter-spacing:.34em;color:var(--gd);text-transform:uppercase}h1{margin:16px 0 0;font-size:clamp(38px,10.5vw,92px);line-height:.94;letter-spacing:-.03em;color:#eafff2;text-shadow:0 0 22px rgba(92,255,157,.35)}h1 u{color:var(--grn);text-decoration:none}h1 s{text-decoration:none;background:linear-gradient(180deg,#ffd479,var(--emb));-webkit-background-clip:text;background-clip:text;color:transparent}.tag{margin:16px auto 0;max-width:560px;font-size:15px}.tag em{color:var(--amb);font-style:normal}.sub{margin:10px auto 0;max-width:600px;font-size:13px}.stage{position:relative;width:276px;margin:54px auto 10px;cursor:pointer;user-select:none}.tile{position:relative;width:276px;height:276px;background:#f5a80b;border:1px solid #000;border-radius:16px;overflow:hidden;animation:bob 4.2s ease-in-out infinite;box-shadow:0 0 0 1px rgba(92,255,157,.25),0 20px 60px rgba(245,168,11,.2)}.tile canvas{width:100%;height:100%;display:block;image-rendering:pixelated}.tile span{position:absolute;right:9px;bottom:7px;font-size:9px;letter-spacing:.14em;color:rgba(0,0,0,.45)}@keyframes bob{50%{transform:translateY(-9px) rotate(.6deg)}}.stage.zap .tile{animation:zap .45s}@keyframes zap{25%{transform:translateY(-14px) scale(1.04) rotate(3deg)}60%{transform:translateY(2px) scale(.98) rotate(-3deg)}}.bub{position:absolute;left:50%;top:-36px;transform:translate(-50%,-6px);z-index:3;padding:8px 12px;border:1px solid var(--gd);border-radius:10px;background:#0f1c19;font-size:12px;color:var(--grn);white-space:nowrap;opacity:0;transition:.22s;pointer-events:none}.bub.on{opacity:1;transform:translate(-50%,-14px)}.poke{font-size:10.5px;letter-spacing:.2em;color:var(--mut);text-transform:uppercase}.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:26px 0 8px}.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:10px;border:1px solid var(--line);background:var(--pnl);color:var(--ink);cursor:pointer;font:700 13.5px var(--m);letter-spacing:.12em;text-transform:uppercase;text-decoration:none}.btn:hover{transform:translateY(-2px)}.btn small{font-size:9.5px;opacity:.75}.buy{border-color:#7a3a12;color:#0b0704;background:linear-gradient(180deg,#ffcf6d,var(--emb));animation:pu 2.6s infinite}@keyframes pu{50%{box-shadow:0 6px 40px rgba(255,95,31,.55)}}.bnk{border-color:var(--gd);color:var(--grn);background:rgba(92,255,157,.07)}#toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,20px);z-index:120;padding:11px 16px;border:1px solid var(--gd);border-radius:9px;background:#12211d;color:var(--grn);font-size:12.5px;opacity:0;transition:.25s;pointer-events:none;max-width:90vw;text-align:center}#toast.on{opacity:1;transform:translate(-50%,0)}section{padding:44px 0;border-top:1px solid rgba(29,58,51,.55)}h2{margin:0 0 6px;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gd);display:flex;align-items:center;gap:10px}h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}.led{margin:0 0 26px;font-size:22px;line-height:1.3;color:#eafff2;font-weight:700}.led em{color:var(--amb);font-style:normal}.rv{opacity:0;transform:translateY(16px);transition:.6s cubic-bezier(.2,.7,.3,1)}.rv.in{opacity:1;transform:none}.steps{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}.step{padding:18px;position:relative;overflow:hidden}.step::before{content:"";position:absolute;inset:0 auto 0 0;width:2px;background:var(--gd)}.step:last-child::before{background:var(--emb)}.step h3{margin:8px 0 6px;font-size:15px;color:#eafff2}.step p{margin:0;font-size:13px;color:var(--mut)}.step b{color:var(--grn)}.step:last-child h3{color:var(--amb)}.step:last-child b{color:var(--emb)}.num{font-size:10px;letter-spacing:.24em;color:var(--mut)}.split{margin-top:22px;overflow:hidden}.bar{display:flex;height:34px;font-size:10.5px;letter-spacing:.16em;font-weight:700}.bar i{width:95%;background:linear-gradient(90deg,#a83c05,var(--emb));color:#100603;font-style:normal;display:flex;align-items:center;justify-content:center}.bar u{width:5%;background:#183028;color:var(--grn);font-size:9px;text-decoration:none;display:flex;align-items:center;justify-content:center}.lab{display:flex;justify-content:space-between;gap:10px;padding:9px 12px;font-size:11px;color:var(--mut)}.lab b{color:var(--emb)}.furn{display:grid;gap:22px;grid-template-columns:200px 1fr;align-items:center;padding:22px;background:radial-gradient(120% 140% at 20% 110%,rgba(255,95,31,.16),transparent 60%),var(--pnl)}@media(max-width:620px){.furn{grid-template-columns:1fr}}.fire{position:relative;height:160px;border-radius:12px;background:#08100f;border:1px solid #24140a;overflow:hidden}.fire i{position:absolute;bottom:-16px;width:46px;height:46px;filter:blur(2px);border-radius:50% 50% 40% 40%;animation:ri 2.6s ease-in infinite;background:radial-gradient(circle at 50% 70%,#fff2c4,var(--amb) 35%,var(--emb) 60%,transparent 72%)}@keyframes ri{0%{transform:translateY(0) scale(.7);opacity:0}15%{opacity:.95}100%{transform:translateY(-150px) scale(.25);opacity:0}}.tok{position:absolute;left:50%;top:6px;margin-left:-19px;width:38px;height:38px;border-radius:50%;border:2px solid var(--grn);color:var(--grn);background:#0b1a16;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;animation:dr 2.6s ease-in infinite}@keyframes dr{0%{transform:translateY(-42px);opacity:0}25%{transform:translateY(0);opacity:1}70%{transform:translateY(96px) rotate(140deg);opacity:1}90%{transform:translateY(126px) rotate(220deg);opacity:0}100%{opacity:0}}.furn h3{margin:0 0 8px;font-size:19px;color:#eafff2}.furn p{margin:0 0 14px;font-size:13.5px;color:var(--mut)}.furn p b{color:var(--amb)}.addr{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:9px 11px;font-size:11.5px;border:1px dashed var(--line);border-radius:9px;color:var(--mut)}.addr code{color:var(--grn);word-break:break-all;font-size:11px}.term{overflow:hidden;background:#060b0b}.tb{display:flex;align-items:center;gap:7px;padding:9px 12px;border-bottom:1px solid var(--line);background:#0a1211;font-size:10.5px;letter-spacing:.16em;color:var(--mut);text-transform:uppercase}.tb i{width:9px;height:9px;border-radius:50%;background:#2a3f39}.tb i:first-child{background:var(--emb)}.tb i:nth-child(2){background:var(--amb)}.body{padding:16px 14px;min-height:150px;font-size:13px;line-height:1.75}.body div{color:var(--gd);white-space:pre-wrap;word-break:break-word}.body b{color:var(--grn);font-weight:400}.body .h b{color:var(--amb)}.cur{display:inline-block;width:8px;height:15px;background:var(--grn);vertical-align:-2px;animation:bl .9s steps(1) infinite}details{margin-bottom:10px;overflow:hidden}details[open]{border-color:var(--gd)}summary{padding:14px 16px;font-size:14px;color:#eafff2;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center}summary::-webkit-details-marker{display:none}summary::after{content:"+";color:var(--grn);font-size:18px}details[open] summary::after{content:"\2212"}details p{margin:0;padding:0 16px 16px;font-size:13.5px;color:var(--mut)}details b{color:var(--grn)}.links{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}.lk{padding:16px;text-decoration:none;display:block}.lk:hover{border-color:var(--grn);transform:translateY(-3px)}.lk b{display:block;font-size:14px;color:#eafff2}.lk s{display:block;font-size:11.5px;color:var(--mut);text-decoration:none;margin-top:5px}.lk u{display:block;font-size:10px;letter-spacing:.18em;color:var(--gd);text-decoration:none;margin-top:10px;text-transform:uppercase}.tbd{border-style:dashed;cursor:pointer}.tbd u{color:var(--amb)}footer{border-top:1px solid var(--line);padding:30px 0 46px;text-align:center;font-size:11.5px;color:var(--mut);line-height:1.8}footer b{color:var(--gd);font-weight:400}.fine{font-size:10.5px;color:#4a6b5f;max-width:620px;margin:14px auto 0;line-height:1.6}.stamp{font-size:10px;letter-spacing:.22em;color:#2c4a41;margin-top:14px;text-transform:uppercase}@media(max-width:420px){.stage,.tile{width:236px}.tile{height:236px}}</style> </head><body><div id="crt"></div><div class="top"><div><b>$BANKRBUD</b><span class="mut"><span class="dot"></span> BASE</span><span class="mut">BURN 95%</span><i></i><a href="https://bankr.bot/terminal" target="_blank" rel="noopener">Bankr</a><a href="https://opensea.io/collection/okcomputers" target="_blank" rel="noopener">NFT</a><a href="#buy" id="topbuy">Buy</a></div></div><div class="mq"><div><span>BUD IS HUNGRY</span><span>·</span><span>95% OF FEES → <em>BUY $BNKR</em></span><span>·</span><span><em>BURN IT</em></span><span>·</span><span>REPEAT FOREVER</span><span>·</span><span>DEPLOYED ON POOLS.FUN</span><span>·</span><span>BUD IS HUNGRY</span><span>·</span><span>95% OF FEES → <em>BUY $BNKR</em></span><span>·</span><span><em>BURN IT</em></span><span>·</span><span>REPEAT FOREVER</span><span>·</span><span>DEPLOYED ON POOLS.FUN</span><span>·</span></div></div><div class="wrap"><div class="hero"><div class="kick">ok computer #4533 · with a job</div><h1><u>$</u>BANKR<s>BUD</s></h1><p class="tag">Bud is a small boxy computer with one job and one bottle. Every trading fee this token earns, <em>95% of it</em> goes straight into buying $BNKR — and then Bud burns it.</p><p class="sub mut">Not staked. Not vested. Not "allocated to the treasury." <b style="color:var(--emb)">Burned.</b></p><div class="stage" id="stage"><div class="bub" id="bub">hi. i eat fees.</div><div class="tile"><canvas id="bud" width="26" height="26" aria-label="BankrBud, OK Computer #4533: a boxy pixel computer with green eyes, a red cap and a bottle"></canvas><span>#4533</span></div></div><div class="poke">↑ poke bud · <a href="https://opensea.io/collection/okcomputers" target="_blank" rel="noopener">ok computer #4533 ↗</a></div><div class="cta" id="buy"><a class="btn buy" id="buybtn" href="#">Buy $BANKRBUD <small>POOLS.FUN</small></a><a class="btn bnk" href="https://bankr.bot/terminal" target="_blank" rel="noopener">Open Bankr <small>TERMINAL</small></a></div></div><section class="rv"><h2>How Bud Eats</h2><p class="led">Four steps. One of them is <em>arson</em>.</p><div class="steps"><div class="step pnl"><div class="num">STEP 01</div><h3>You trade $BANKRBUD</h3><p>Bud's pool lives on <b>pools.fun</b>. Every buy and every sell pays a trading fee. This is the only nutrition Bud receives.</p></div><div class="step pnl"><div class="num">STEP 02</div><h3>Fees land with the deployer</h3><p>pools.fun routes a share of those trading fees back to whoever launched the token. That's <b>this project</b>. Hi.</p></div><div class="step pnl"><div class="num">STEP 03</div><h3>95% buys $BNKR</h3><p>Bud takes <b>95%</b> of every fee it receives and market-buys <b>$BNKR</b>, the token behind Bankr. Open market. Same book as you.</p></div><div class="step pnl"><div class="num">STEP 04</div><h3>Then it's gone 🔥</h3><p>Every $BNKR Bud buys goes to the <b>burn address</b>. Not a treasury. Not a multisig. A hole in the ground with no ladder.</p></div></div><div class="split pnl"><div class="bar"><i>95% → BUY &amp; BURN $BNKR</i><u>5%</u></div><div class="lab"><span><b>95%</b> — $BNKR bought on the open market, then burned</span><span>5% — gas, RPCs, keeping this page alive</span></div></div></section><section class="rv"><h2>The Furnace</h2><p class="led">Bud has one setting: <em>on</em>.</p><div class="furn pnl"><div class="fire"><div class="tok">BNKR</div><i style="left:14%"></i><i style="left:34%;animation-delay:.5s"></i><i style="left:52%;animation-delay:1.1s"></i><i style="left:72%;animation-delay:1.7s"></i><i style="left:26%;animation-delay:2.2s"></i></div><div><h3>Buy pressure that never sells</h3><p>A burn is the one buyer that can't change its mind. The $BNKR Bud buys will never hit a bid again — <b>it leaves the float permanently</b>. Bud does not take profit. Bud cannot take profit. Bud has no hands, only a furnace.</p><div class="addr"><span>BURN ADDRESS</span><code id="addr">0x000000000000000000000000000000000000dEaD</code><button class="btn" style="padding:5px 10px;font-size:10px" id="cp">Copy</button></div></div></div></section><section class="rv"><h2>Bud's Brain</h2><p class="led">Live thoughts from a <em>computer with a job</em>.</p><div class="term pnl"><div class="tb"><i></i><i></i><i></i><span>bud@base:~$ tail -f thoughts.log</span></div><div class="body" id="log"></div></div></section><section class="rv"><h2>Questions Bud Has Heard</h2><p class="led">Mostly asked by <em>people who are already buying</em>.</p><details class="pnl" open><summary>Wait — what is $BNKR?</summary><p>$BNKR is the token tied to <b>Bankr</b>, an onchain agent you talk to like a person: swaps, transfers, deploys, all from a chat box. Bud thinks that's neat, so Bud spends its entire allowance on $BNKR and then destroys it.</p></details><details class="pnl"><summary>So what does $BANKRBUD actually do?</summary><p>It routes fees into a fire. That's the whole machine. You trade the token, the pool generates fees, <b>95%</b> of the deployer's share buys $BNKR on the open market, and that $BNKR goes to the burn address and never returns.</p></details><details class="pnl"><summary>Why 95% and not 100%?</summary><p>Because gas exists, RPCs cost money, and this page has to stay onchain. The remaining <b>5%</b> covers running the thing. Bud would prefer 100% but Bud does not understand infrastructure billing.</p></details><details class="pnl"><summary>Wait, Bud is an NFT?</summary><p>Bud is <b>OK Computer #4533</b>, from the OK Computers collection on Base. Most OK Computers sit around looking cool. Bud got a job. The one up top is drawn pixel-by-pixel in this page's source — no image file, because this page lives onchain and every byte costs gas.</p></details><details class="pnl"><summary>Can the burns be turned off?</summary><p>The burn address has no private key. Anything sent there is gone in the most boring, permanent way available onchain. Nobody "un-burns" it. <b>Verify every burn on Basescan yourself.</b></p></details><details class="pnl"><summary>Is this financial advice?</summary><p>It is a cartoon computer with a furnace where its mouth should be. <b>No.</b> Memecoins go to zero routinely and enthusiastically. Only ever risk what you're genuinely fine lighting on fire — Bud certainly is.</p></details></section><section class="rv"><h2>Go Places</h2><p class="led">Three doors. <em>All open.</em></p><div class="links"><a class="lk pnl" href="https://bankr.bot/terminal" target="_blank" rel="noopener"><b>Bankr Terminal ↗</b><s>The onchain agent Bud burns for. Type at it, it does things.</s><u>bankr.bot/terminal</u></a><a class="lk pnl tbd" id="pool" href="#"><b>Buy $BANKRBUD ↗</b><s>The pool on pools.fun. Every trade feeds the furnace.</s><u>link goes live at launch</u></a><a class="lk pnl" href="https://opensea.io/collection/okcomputers" target="_blank" rel="noopener"><b>OK Computers ↗</b><s>Bud's home collection. He is #4533. The other ones don't have jobs.</s><u>opensea.io/collection/okcomputers</u></a></div></section><footer><div><b>$BANKRBUD</b> — 95% of trading fees buy &amp; burn $BNKR. Forever. On Base.</div><div>art: <b>OK COMPUTER #4533</b> · <a href="https://opensea.io/collection/okcomputers" target="_blank" rel="noopener">opensea.io/collection/okcomputers</a></div><p class="fine">$BANKRBUD is a memecoin with no team, no roadmap, and no promises of profit. It is not affiliated with, endorsed by, or operated by Bankr, pools.fun, OK Computers, Base, or Coinbase. Nothing here is financial advice. Do your own research, verify everything onchain, and assume you can lose all of it.</p><div class="stamp">stored fully onchain · OK COMPUTER #4533 · page 4533</div></footer></div><div id="toast"></div> <script>(function(){
+"use strict";
+var $=function(s){return document.querySelector(s)};
+var POOL="";
+var IMG="";
+var toastEl=$("#toast"),tT;
+function toast(m){toastEl.textContent=m;toastEl.className="on";
+clearTimeout(tT);tT=setTimeout(function(){toastEl.className=""},2600)}
+[$("#buybtn"),$("#pool"),$("#topbuy")].forEach(function(el){
+if(!el)return;
+if(POOL){
+el.href=POOL;el.target="_blank";el.rel="noopener";
+if(el.id==="pool"){el.classList.remove("tbd");el.querySelector("u").textContent="pools.fun"}
+}else{
+el.onclick=function(e){e.preventDefault();
+toast("Pool isn't live yet — Bud is still booting. Check back at launch.")}
+}
+});
+$("#cp").onclick=function(){
+var t=$("#addr").textContent.trim();
+if(navigator.clipboard)navigator.clipboard.writeText(t).then(function(){toast("Copied "+t.slice(0,10)+"…")},function(){toast(t)});
+else toast(t);
+};
+var PAL={K:"#000",C:"#fbe0c0",G:"#5fe04a",R:"#e52a18",B:"#1c63e8",N:"#8a5a3b",D:"#0e8a3c",E:"#07642a",W:"#ececec"};
+var ART=[
+".......W",
+"",
+"......W....KKKKKKK",
+"......W...KRRRRRRRK",
+".........KKRRRRRRRRKK",
+"......WBBBBBBBBBRRRRK",
+"........KKKKKKKKKKKKKKK",
+"........KCCCCCCCCCCCCNK",
+"......K.KCCKKKKKKKKKCNK",
+"......DEKCCKGKGKGKGKCNK",
+"......DEKCCKGGGKGGGKCNK",
+"......DEKCCKKKKKKKKKCNK",
+".....KDEKCCKKKKGKKKKCKCCC",
+"...KKEDEKCCKKKKKKKKKCKCKC",
+"...KEEDEKCCKKKKKKKKKCKCCC",
+"....KEDEKCCCCCCCCCCCCKKKK",
+".....KKKKKKKKKKKKKKKKKKKK",
+"......CCKKKNNKKKNNKKKKCCK",
+"......CCKKKNNKKKNNKKKKCCK",
+"......KK...............KK"];
+var OX=-1,OY=3;
+var stage=$("#stage"),cv=$("#bud"),cx=cv.getContext&&cv.getContext("2d");
+var ex=0,ey=0,tx=0,ty=0,blink=0;
+function draw(){
+cx.clearRect(0,0,26,26);
+for(var y=0;y<20;y++)for(var x=0;x<27;x++){
+var c=ART[y].charAt(x);
+if(c==="."||c===""||(y>=9&&y<=10&&x>=11&&x<=19))continue;
+cx.fillStyle=PAL[c];cx.fillRect(x+OX,y+OY,1,1);
+}
+cx.fillStyle=PAL.K;cx.fillRect(11+OX,9+OY,9,2);
+if(blink){cx.fillStyle=PAL.G;cx.fillRect(12+OX,10+OY,3,1);cx.fillRect(16+OX,10+OY,3,1);return}
+var dx=Math.round(ex),dy=Math.round(ey);
+cx.fillStyle=PAL.G;
+for(y=9;y<=10;y++)for(x=11;x<=19;x++)
+if(ART[y].charAt(x)==="G")cx.fillRect(x+OX+dx,y+OY+dy,1,1);
+}
+if(IMG){
+var im=new Image();im.src=IMG;im.alt="BankrBud, OK Computer #4533";
+im.style.cssText="width:100%;height:100%;display:block;image-rendering:pixelated";
+cv.parentNode.replaceChild(im,cv);cx=null;
+}
+if(cx){
+onmousemove=function(e){
+var r=stage.getBoundingClientRect();
+tx=Math.max(-1,Math.min(1,(e.clientX-r.left-r.width/2)/(r.width/2)));
+ty=Math.max(-1,Math.min(1,(e.clientY-r.top-r.height/2)/(r.height/2)));
+};
+(function loop(){ex+=(tx-ex)*.12;ey+=(ty-ey)*.12;draw();requestAnimationFrame(loop)})();
+setInterval(function(){if(Math.random()>.5)return;
+blink=1;setTimeout(function(){blink=0},120)},2400);
+}
+var QUIPS=["95%. every time. no exceptions.",
+"i bought $BNKR. then i burned it. that's the bit.",
+"i cannot sell. i have no hands. only furnace.",
+"supply go down. bud go brrr.",
+"my roadmap is a single flame emoji.",
+"5% goes to gas. don't tell the accountant.",
+"i'm ok computer #4533. the others just vibe.",
+"yes this is a bottle. no i will not elaborate.",
+"drawn from 32 lines of text. no image file.",
+"please stop poking me, i'm working."];
+var bub=$("#bub"),qi=0,bT;
+function say(m){bub.textContent=m;bub.className="bub on";
+clearTimeout(bT);bT=setTimeout(function(){bub.className="bub"},2800)}
+stage.onclick=function(){
+stage.className="stage";void stage.offsetWidth;stage.className="stage zap";
+qi=(qi+1)%QUIPS.length;say(QUIPS[qi]);
+};
+setTimeout(function(){say("hi. i eat fees.")},900);
+var LOG=[["watching pool for fee events ...",0],["fee received → routing split",0],
+["  95% → market buy $BNKR",0],["  5%  → gas + infra",0],
+["swap complete. holding $BNKR for 0 seconds.",0],["sending to 0x...dEaD 🔥",1],
+["$BNKR supply: slightly smaller than before",1],["bud status: full, still hungry",0],
+["reminder: bud has no sell button",0],["listening ...",0]];
+var log=$("#log"),li=0,ci=0,row=null;
+function type(){
+if(!row){
+row=document.createElement("div");
+if(LOG[li][1])row.className="h";
+row.innerHTML='<b></b><span class="cur"></span>';
+log.appendChild(row);
+while(log.children.length>7)log.removeChild(log.firstChild);
+}
+var t=LOG[li][0];
+if(ci<t.length){row.firstChild.textContent=t.slice(0,++ci);setTimeout(type,16+Math.random()*34)}
+else{row.lastChild.remove();row=null;ci=0;li=(li+1)%LOG.length;setTimeout(type,li?420:1400)}
+}
+setTimeout(type,600);
+var rv=document.querySelectorAll(".rv");
+if(window.IntersectionObserver){
+var io=new IntersectionObserver(function(es){es.forEach(function(e){
+if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},
+{rootMargin:"0px 0px -12% 0px"});
+for(var i=0;i<rv.length;i++)io.observe(rv[i]);
+}else for(var j=0;j<rv.length;j++)rv[j].classList.add("in");
+var keys="";
+onkeydown=function(e){
+if(!e.key||e.key.length!==1)return;
+keys=(keys+e.key.toLowerCase()).slice(-4);
+if(keys==="burn"){
+document.body.style.filter="hue-rotate(-40deg) saturate(1.4)";
+say("EVERYTHING IS FUEL");toast("🔥 bud has entered furnace mode");
+setTimeout(function(){document.body.style.filter=""},3200);
+}
+};
+})();</script> </body></html>
