@@ -10,8 +10,10 @@ here changes behaviour: comments and whitespace go, code does not.
 """
 import re, sys, pathlib
 
-SRC = pathlib.Path(__file__).parent / "index.html"
-OUT = pathlib.Path(__file__).parent / "page.min.html"
+HERE = pathlib.Path(__file__).parent
+# source -> upload artifact
+TARGETS = {"index.html": "page.min.html", "lite.html": "lite.min.html",
+           "test.html": "test.min.html"}
 
 
 def strip_js_comments(js: str) -> str:
@@ -74,32 +76,34 @@ def minify_html(html: str) -> str:
     return html.strip()
 
 
-def main() -> int:
-    src = SRC.read_text(encoding="utf-8")
+def build(src_name: str, out_name: str) -> None:
+    src_path, out_path = HERE / src_name, HERE / out_name
+    if not src_path.exists():
+        return
+    src = src_path.read_text(encoding="utf-8")
 
     style = re.search(r"<style>(.*?)</style>", src, re.S)
     script = re.search(r"<script>(.*?)</script>", src, re.S)
-    if not style or not script:
-        print("error: could not find <style> / <script> block", file=sys.stderr)
-        return 1
 
-    css = minify_css(style.group(1))
-    js = minify_js(script.group(1))
-
-    # Swap in placeholders so HTML minification cannot touch code, then restore.
-    out = src.replace(style.group(0), "\x00CSS\x00").replace(script.group(0), "\x00JS\x00")
+    out = src
+    if style:
+        out = out.replace(style.group(0), "\x00CSS\x00")
+    if script:
+        out = out.replace(script.group(0), "\x00JS\x00")
     out = minify_html(out)
-    out = out.replace("\x00CSS\x00", "<style>" + css + "</style>")
-    out = out.replace("\x00JS\x00", "<script>" + js + "</script>")
+    if style:
+        out = out.replace("\x00CSS\x00", "<style>" + minify_css(style.group(1)) + "</style>")
+    if script:
+        out = out.replace("\x00JS\x00", "<script>" + minify_js(script.group(1)) + "</script>")
 
-    OUT.write_text(out, encoding="utf-8")
-
+    out_path.write_text(out, encoding="utf-8")
     before, after = len(src.encode()), len(out.encode())
-    gas = after * 625  # ~20000 gas per 32-byte storage word
-    print(f"index.html    {before:>7,} bytes")
-    print(f"page.min.html {after:>7,} bytes  ({100 - after * 100 // before}% smaller)")
-    print(f"est. storage gas ~{gas:,} (naive SSTORE at 625 gas/byte)")
-    print(f"headroom vs 16,777,216 limit: {16_777_216 - gas:,}")
+    print(f"{src_name:<12} {before:>7,} -> {out_name:<14} {after:>7,} bytes")
+
+
+def main() -> int:
+    for src_name, out_name in TARGETS.items():
+        build(src_name, out_name)
     return 0
 
 
