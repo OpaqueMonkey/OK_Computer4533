@@ -6,7 +6,9 @@
 <title>$BANKRBUD — the little bud that burns $BNKR</title>
 <style>
 /* ============================================================
-   $BANKRBUD — onchain page for OK COMPUTER #2618
+   $BANKRBUD — onchain page for OK COMPUTER #4533
+   (your brief said "page 2618"; the NFT + repo say 4533 — change the
+    two spots marked PAGE NUMBER below if 2618 is the right one)
    No external deps. Inline styles + inline script only.
    ============================================================ */
 
@@ -103,11 +105,22 @@ h1 .bud{
 .tag em{color:var(--amb);font-style:normal}
 .sub{margin:10px auto 0;max-width:600px;font-size:13px;color:var(--mute)}
 
-/* ---- mascot ---- */
-.budstage{position:relative;width:230px;height:250px;margin:52px auto 6px;cursor:pointer;user-select:none}
-.budstage svg{width:100%;height:100%;overflow:visible;animation:bob 4.2s ease-in-out infinite}
+/* ---- mascot (OK COMPUTER #4533, redrawn as a 32x32 sprite) ---- */
+.budstage{position:relative;width:276px;margin:54px auto 10px;cursor:pointer;user-select:none}
+.tile{
+  position:relative;width:276px;height:276px;background:#f5a80b;border-radius:16px;
+  overflow:hidden;border:1px solid #000;
+  box-shadow:0 0 0 1px rgba(92,255,157,.25),0 20px 60px rgba(245,168,11,.2);
+  animation:bob 4.2s ease-in-out infinite
+}
+@media(max-width:420px){.budstage,.tile{width:236px}.tile{height:236px}}
+.tile canvas{width:100%;height:100%;display:block;image-rendering:pixelated;image-rendering:crisp-edges}
+.tileid{
+  position:absolute;right:9px;bottom:7px;font-size:9px;letter-spacing:.14em;font-weight:700;
+  color:rgba(0,0,0,.45);pointer-events:none
+}
 @keyframes bob{0%,100%{transform:translateY(0) rotate(-.6deg)}50%{transform:translateY(-9px) rotate(.6deg)}}
-.budstage.zap svg{animation:zap .45s}
+.budstage.zap .tile{animation:zap .45s}
 @keyframes zap{0%,100%{transform:none}25%{transform:translateY(-14px) scale(1.04) rotate(3deg)}60%{transform:translateY(2px) scale(.98) rotate(-3deg)}}
 .bubble{
   position:absolute;left:50%;top:-36px;transform:translate(-50%,-6px);z-index:3;
@@ -311,6 +324,7 @@ footer b{color:var(--grn-dim);font-weight:400}
     <span class="pill">BURN <b>95%</b></span>
     <span class="spacer"></span>
     <a class="mini" href="https://bankr.bot/terminal" target="_blank" rel="noopener">Bankr</a>
+    <a class="mini" href="https://opensea.io/collection/okcomputers" target="_blank" rel="noopener">NFT</a>
     <a class="mini" href="#buy" id="topbuy">Buy</a>
   </div>
 </div>
@@ -326,81 +340,16 @@ footer b{color:var(--grn-dim);font-weight:400}
 
   <!-- ================= HERO ================= -->
   <div class="hero">
-    <div class="kicker">a fee-eating houseplant on base</div>
+    <div class="kicker">ok computer #4533 · with a job</div>
     <h1><span class="buck">$</span>BANKR<span class="bud">BUD</span></h1>
-    <p class="tag">Bud is a very small plant with a very large furnace. Every trading fee this token earns, <em>95% of it</em> goes straight into buying $BNKR — and then Bud sets it on fire.</p>
+    <p class="tag">Bud is a small boxy computer with one job and one bottle. Every trading fee this token earns, <em>95% of it</em> goes straight into buying $BNKR — and then Bud burns it.</p>
     <p class="sub">Not staked. Not vested. Not "allocated to the treasury." <strong style="color:var(--ember)">Burned.</strong></p>
 
     <div class="budstage" id="stage" title="poke bud">
       <div class="bubble" id="bubble">hi. i eat fees.</div>
-      <svg viewBox="0 0 200 220" aria-label="BankrBud, a small robot with a sprout on its head">
-        <defs>
-          <radialGradient id="glow" cx="50%" cy="50%">
-            <stop offset="0%" stop-color="#5cff9d" stop-opacity=".35"/>
-            <stop offset="100%" stop-color="#5cff9d" stop-opacity="0"/>
-          </radialGradient>
-          <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#16302a"/>
-            <stop offset="100%" stop-color="#0a1614"/>
-          </linearGradient>
-          <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#8bffb9"/>
-            <stop offset="100%" stop-color="#25a463"/>
-          </linearGradient>
-          <linearGradient id="belly" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#ffcf6d"/>
-            <stop offset="100%" stop-color="#ff5f1f"/>
-          </linearGradient>
-        </defs>
-
-        <ellipse cx="100" cy="120" rx="92" ry="88" fill="url(#glow)"/>
-
-        <!-- sprout -->
-        <path d="M100 46 C100 30 100 22 100 14" stroke="#2fae6a" stroke-width="4" fill="none" stroke-linecap="round"/>
-        <path d="M100 26 C82 22 72 10 74 2 C90 2 100 12 100 26 Z" fill="url(#leaf)"/>
-        <path d="M100 34 C118 32 128 22 128 14 C112 12 100 22 100 34 Z" fill="url(#leaf)" opacity=".85"/>
-
-        <!-- head -->
-        <rect x="34" y="44" width="132" height="104" rx="26" fill="url(#body)" stroke="#2fae6a" stroke-width="2.5"/>
-        <rect x="48" y="58" width="104" height="62" rx="16" fill="#06100e" stroke="#173029" stroke-width="2"/>
-
-        <!-- eyes -->
-        <g id="eyes">
-          <circle cx="80" cy="88" r="13" fill="#0b1a16" stroke="#2fae6a" stroke-width="1.5"/>
-          <circle cx="120" cy="88" r="13" fill="#0b1a16" stroke="#2fae6a" stroke-width="1.5"/>
-          <g id="pupils">
-            <circle cx="80" cy="88" r="5.5" fill="#5cff9d"/>
-            <circle cx="120" cy="88" r="5.5" fill="#5cff9d"/>
-          </g>
-          <g id="lids" opacity="0">
-            <rect x="66" y="74" width="28" height="28" fill="#16302a"/>
-            <rect x="106" y="74" width="28" height="28" fill="#16302a"/>
-          </g>
-        </g>
-
-        <!-- mouth / furnace grate -->
-        <rect x="82" y="126" width="36" height="14" rx="4" fill="#160a04" stroke="#6e3410" stroke-width="1.5"/>
-        <g id="grate">
-          <rect x="87" y="129" width="4" height="8" fill="url(#belly)"/>
-          <rect x="95" y="129" width="4" height="8" fill="url(#belly)" opacity=".8"/>
-          <rect x="103" y="129" width="4" height="8" fill="url(#belly)" opacity=".9"/>
-          <rect x="111" y="129" width="4" height="8" fill="url(#belly)" opacity=".7"/>
-        </g>
-
-        <!-- arms -->
-        <path d="M34 108 C16 108 12 122 18 132" stroke="#2fae6a" stroke-width="4" fill="none" stroke-linecap="round"/>
-        <path d="M166 108 C184 108 188 122 182 132" stroke="#2fae6a" stroke-width="4" fill="none" stroke-linecap="round"/>
-        <circle cx="18" cy="136" r="7" fill="#0b1a16" stroke="#2fae6a" stroke-width="2"/>
-        <circle cx="182" cy="136" r="8" fill="#0b1a16" stroke="#ffb638" stroke-width="2"/>
-        <text x="182" y="140" font-size="9" font-weight="700" fill="#ffb638" text-anchor="middle" font-family="monospace">B</text>
-
-        <!-- legs / pot -->
-        <path d="M62 148 L138 148 L128 186 L72 186 Z" fill="#0d1c18" stroke="#2fae6a" stroke-width="2.5"/>
-        <rect x="58" y="142" width="84" height="12" rx="4" fill="#123028" stroke="#2fae6a" stroke-width="2"/>
-        <text x="100" y="174" font-size="13" font-weight="800" fill="#2fae6a" text-anchor="middle" font-family="monospace" letter-spacing="1">BUD</text>
-      </svg>
+      <div class="tile"><canvas id="bud" width="26" height="26" aria-label="BankrBud, OK Computer #4533: a boxy pixel computer with green eyes, a red cap, a blue visor stripe and a bottle"></canvas><span class="tileid">#4533</span></div>
     </div>
-    <div class="poke">↑ poke bud</div>
+    <div class="poke">↑ poke bud · <a href="https://opensea.io/collection/okcomputers" target="_blank" rel="noopener" style="color:var(--grn-dim)">ok computer #4533 ↗</a></div>
 
     <div class="cta" id="buy">
       <a class="btn btn-buy" id="buybtn" href="#" data-pool="">Buy $BANKRBUD <small>POOLS.FUN</small></a>
@@ -526,8 +475,13 @@ footer b{color:var(--grn-dim);font-weight:400}
     </details>
 
     <details>
+      <summary>Wait, Bud is an NFT?</summary>
+      <p>Bud is <b>OK Computer #4533</b>, from the OK Computers collection on Base. Most OK Computers sit around looking cool. Bud got a job. The one up top is drawn pixel-for-pixel in this page's source — no image file, because this page lives onchain and every byte counts.</p>
+    </details>
+
+    <details>
       <summary>Is Bud a dog?</summary>
-      <p>Bud is a <b>bud</b>. Botanically a sprout, spiritually a golden retriever, functionally an incinerator. Bud contains multitudes and one (1) furnace.</p>
+      <p>Bud is a <b>computer</b>. Boxy, green-eyed, wearing a cap, holding a bottle. Spiritually a golden retriever, functionally an incinerator. Bud contains multitudes and one (1) furnace.</p>
     </details>
 
     <details>
@@ -544,7 +498,7 @@ footer b{color:var(--grn-dim);font-weight:400}
   <!-- ================= LINKS ================= -->
   <section class="rv">
     <h2>Go Places</h2>
-    <p class="lede">Two doors. <span>Both open.</span></p>
+    <p class="lede">Three doors. <span>All open.</span></p>
     <div class="links">
       <a class="lk" href="https://bankr.bot/terminal" target="_blank" rel="noopener">
         <b>Bankr Terminal ↗</b>
@@ -556,13 +510,20 @@ footer b{color:var(--grn-dim);font-weight:400}
         <s>The pool on pools.fun. Every trade feeds the furnace.</s>
         <u>link goes live at launch</u>
       </a>
+      <a class="lk" href="https://opensea.io/collection/okcomputers" target="_blank" rel="noopener">
+        <b>OK Computers ↗</b>
+        <s>Bud's home collection. He is #4533. The other ones don't have jobs.</s>
+        <u>opensea.io/collection/okcomputers</u>
+      </a>
     </div>
   </section>
 
   <footer>
     <div><b>$BANKRBUD</b> — 95% of trading fees buy &amp; burn $BNKR. Forever. On Base.</div>
-    <p class="tiny">$BANKRBUD is a memecoin with no team, no roadmap, and no promises of profit. It is not affiliated with, endorsed by, or operated by Bankr, pools.fun, Base, or Coinbase. Nothing here is financial advice. Do your own research, verify everything onchain, and assume you can lose all of it.</p>
-    <div class="stamp">stored fully onchain · OK COMPUTER #2618 · <span id="cmd">page 2618</span></div>
+    <div style="margin-top:6px">art: <b>OK COMPUTER #4533</b> · <a href="https://opensea.io/collection/okcomputers" target="_blank" rel="noopener" style="color:var(--grn-dim)">opensea.io/collection/okcomputers</a></div>
+    <p class="tiny">$BANKRBUD is a memecoin with no team, no roadmap, and no promises of profit. It is not affiliated with, endorsed by, or operated by Bankr, pools.fun, OK Computers, Base, or Coinbase. Nothing here is financial advice. Do your own research, verify everything onchain, and assume you can lose all of it.</p>
+    <!-- PAGE NUMBER: the terminal command that renders this page -->
+    <div class="stamp">stored fully onchain · OK COMPUTER #4533 · <span id="cmd">page 4533</span></div>
   </footer>
 </div>
 
@@ -607,6 +568,17 @@ footer b{color:var(--grn-dim);font-weight:400}
     }
   });
 
+  /* ------------------------------------------------------------------
+     OPTIONAL — swap in the real NFT artwork.
+     The mascot below is hand-drawn in code so it costs ~1KB. If you'd
+     rather ship the actual PNG pixel-for-pixel, paste its Base64 data
+     URI here and it replaces the drawn sprite automatically:
+       var NFT_IMG = "data:image/png;base64,iVBORw0KGgo...";
+     Use the smallest export you have (a 32x32 PNG is well under 1KB;
+     the 512x512 version will cost you several KB of the 64KB budget).
+  ------------------------------------------------------------------ */
+  var NFT_IMG = "";
+
   /* ---- copy buttons ---- */
   document.querySelectorAll("[data-copy]").forEach(function(b){
     b.addEventListener("click",function(){
@@ -624,28 +596,107 @@ footer b{color:var(--grn-dim);font-weight:400}
     });
   });
 
-  /* ---- mascot: eyes follow cursor ---- */
-  var pupils=$("#pupils"), stage=$("#stage"), lids=$("#lids");
-  if(pupils){
-    var tx=0,ty=0,cx=0,cy=0;
+  /* ------------------------------------------------------------------
+     MASCOT — OK COMPUTER #4533 redrawn as a 32x32 pixel sprite.
+     Each string is one row; each character is one pixel (see PAL).
+     Drawn to a 32x32 canvas and CSS-upscaled with image-rendering:pixelated,
+     so it stays razor sharp at any size for ~1KB of source.
+  ------------------------------------------------------------------ */
+  var PAL={
+    K:"#000000", C:"#fbe0c0", G:"#5fe04a", R:"#e52a18", B:"#1c63e8",
+    N:"#8a5a3b", D:"#0e8a3c", E:"#07642a", W:"#ececec"
+  };
+  var ART=[
+    "................................",
+    "................................",
+    "................................",
+    "................................",
+    "................................",
+    "................................",
+    ".......W........................",
+    "................................",
+    "......W....KKKKKKK..............",
+    "......W...KRRRRRRRK.............",
+    ".........KKRRRRRRRRKK...........",
+    "......WBBBBBBBBBRRRRK...........",
+    "........KKKKKKKKKKKKKKK.........",
+    "........KCCCCCCCCCCCCNK.........",
+    "......K.KCCKKKKKKKKKCNK.........",
+    "......DEKCCKGKGKGKGKCNK.........",
+    "......DEKCCKGGGKGGGKCNK.........",
+    "......DEKCCKKKKKKKKKCNK.........",
+    ".....KDEKCCKKKKGKKKKCKCCC.......",
+    "...KKEDEKCCKKKKKKKKKCKCKC.......",
+    "...KEEDEKCCKKKKKKKKKCKCCC.......",
+    "....KEDEKCCCCCCCCCCCCKKKK.......",
+    ".....KKKKKKKKKKKKKKKKKKKK.......",
+    "......CCKKKNNKKKNNKKKKCCK.......",
+    "......CCKKKNNKKKNNKKKKCCK.......",
+    "......KK...............KK.......",
+    "................................",
+    "................................",
+    "................................",
+    "................................",
+    "................................",
+    "................................"
+  ];
+  var OX=-1, OY=-3;            // crop tight to the artwork so it fills the tile like the NFT
+  function isEye(x,y){ return y>=15 && y<=16 && x>=11 && x<=19; }
+
+  var stage=$("#stage"), cvs=$("#bud"), ctx=cvs&&cvs.getContext?cvs.getContext("2d"):null;
+  var ex=0,ey=0,tex=0,tey=0,blinkT=0;
+
+  function drawBud(){
+    if(!ctx) return;
+    ctx.clearRect(0,0,26,26);
+    var x,y,c;
+    // pass 1 — everything except the eyes
+    for(y=0;y<32;y++){
+      for(x=0;x<32;x++){
+        c=ART[y].charAt(x);
+        if(c==="."||c===""||isEye(x,y)) continue;
+        ctx.fillStyle=PAL[c]; ctx.fillRect(x+OX,y+OY,1,1);
+      }
+    }
+    // pass 2 — eye row background (inside of the screen is black)
+    ctx.fillStyle=PAL.K; ctx.fillRect(11+OX,15+OY,9,2);
+    // pass 3 — the eyes themselves, offset by up to 1px to track the cursor
+    var dx=Math.round(ex), dy=Math.round(ey);
+    for(y=15;y<=16;y++){
+      for(x=11;x<=19;x++){
+        if(ART[y].charAt(x)!=="G") continue;
+        if(blinkT>0) continue;
+        ctx.fillStyle=PAL.G; ctx.fillRect(x+OX+dx,y+OY+dy,1,1);
+      }
+    }
+    if(blinkT>0){ ctx.fillStyle=PAL.G; ctx.fillRect(12+OX,16+OY,3,1); ctx.fillRect(16+OX,16+OY,3,1); }
+  }
+
+  if(NFT_IMG){
+    // real artwork supplied — drop it in place of the drawn sprite
+    var im=new Image();
+    im.alt="BankrBud, OK Computer #4533";
+    im.src=NFT_IMG;
+    im.style.cssText="width:100%;height:100%;display:block;image-rendering:pixelated";
+    if(cvs&&cvs.parentNode) cvs.parentNode.replaceChild(im,cvs);
+    ctx=null;
+  }
+
+  if(ctx){
     window.addEventListener("mousemove",function(e){
       var r=stage.getBoundingClientRect();
-      var dx=(e.clientX-(r.left+r.width/2))/(r.width/2);
-      var dy=(e.clientY-(r.top+r.height*0.38))/(r.height/2);
-      tx=Math.max(-1,Math.min(1,dx))*4.5;
-      ty=Math.max(-1,Math.min(1,dy))*3.5;
+      tex=Math.max(-1,Math.min(1,(e.clientX-(r.left+r.width/2))/(r.width/2)));
+      tey=Math.max(-1,Math.min(1,(e.clientY-(r.top+r.height/2))/(r.height/2)));
     },{passive:true});
     (function loop(){
-      cx+=(tx-cx)*0.12; cy+=(ty-cy)*0.12;
-      pupils.setAttribute("transform","translate("+cx.toFixed(2)+","+cy.toFixed(2)+")");
+      ex+=(tex-ex)*0.12; ey+=(tey-ey)*0.12;
+      drawBud();
       requestAnimationFrame(loop);
     })();
-    // blink
     setInterval(function(){
-      if(Math.random()>0.55) return;
-      lids.setAttribute("opacity","1");
-      setTimeout(function(){lids.setAttribute("opacity","0")},110);
-    },2200);
+      if(Math.random()>0.5) return;
+      blinkT=1; setTimeout(function(){blinkT=0},120);
+    },2400);
   }
 
   /* ---- mascot: poke ---- */
@@ -662,7 +713,10 @@ footer b{color:var(--grn-dim);font-weight:400}
     "5% goes to gas. don't tell the accountant.",
     "somewhere, a $BNKR is having its last day.",
     "i am legally a plant. emotionally an incinerator.",
-    "ask bankr about me. it'll pretend not to know."
+    "ask bankr about me. it'll pretend not to know.",
+    "i'm ok computer #4533. the others just vibe.",
+    "yes this is a bottle. no i will not elaborate.",
+    "drawn from 32 lines of text. no image file. onchain diet."
   ];
   var bubble=$("#bubble"), qi=Math.floor(Math.random()*QUIPS.length), bT;
   function speak(msg){
