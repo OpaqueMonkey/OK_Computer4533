@@ -6,76 +6,63 @@ $BNKR on the open market and burn it.
 
 Mascot is **OK Computer #4533**, drawn as a 32x32 pixel sprite in code.
 
-## Files
+## Upload this one
 
-| source       | upload artifact | bytes  | what it is                          |
-| ------------ | --------------- | ------ | ----------------------------------- |
-| `index.html` | `page.min.html` | 23,468 | the full page                       |
-| `lite.html`  | `lite.min.html` | 7,029  | stripped: Bud, pitch, links only    |
-| `test.html`  | `test.min.html` | 487    | a probe, to test the upload at all  |
+`lite.min.html` — **7,381 bytes**, under the 8,221-byte page known to upload.
+
+| source       | artifact        |  bytes | status                        |
+| ------------ | --------------- | -----: | ----------------------------- |
+| `lite.html`  | `lite.min.html` |  7,381 | **upload this**               |
+| `test.html`  | `test.min.html` |    487 | bare probe, if lite ever fails |
+| `index.html` | `page.min.html` | 23,468 | too big — reverted            |
 
 ```
-python3 build.py        # minifies all three
+python3 build.py        # minifies every source in TARGETS
 ```
 
-## Upload status: blocked, cause not yet established
+## The size ceiling is gas, not the stated 64KB
 
-Two upload attempts have reverted. Both receipts:
+Uploads are capped by a per-transaction gas limit of 16,777,216 (2^24), not
+by the platform's advertised 64KB. Two data points bound the real cost:
 
-| | attempt 1 | attempt 2 | ratio |
-| --- | ---: | ---: | ---: |
-| page bytes | 37,574 | 23,468 | 0.625 |
-| `l1GasUsed` | 240,591 | 161,385 | 0.671 |
-| `blobGasUsed` | 2,225,328 | 1,492,728 | 0.671 |
-| **`gasUsed`** | **16,777,216** | **16,777,216** | **1.000** |
+| page bytes | result | implies |
+| ---------: | ------ | ------- |
+| 8,221 | uploaded | cost <= 2,041 gas/byte |
+| 23,468 | reverted | cost > 715 gas/byte |
+| 37,574 | reverted | — |
 
-L1 and blob gas both scaled down with the payload, so the smaller file
-genuinely reached the chain. But `gasUsed` is bit-identical at exactly
-2^24 — a round power of two, i.e. a gas *limit* being consumed whole,
-which is the out-of-gas signature (`status:false` with no revert reason).
+Both failures show `status:false`, no revert reason, and `gasUsed` exactly
+16,777,216 — the out-of-gas signature, where the transaction consumes its
+whole limit.
 
-**A 37.5% smaller page moved execution gas by zero.** If per-byte storage
-cost were the binding constraint, it would have fallen proportionally like
-the other two. So the earlier "just make it smaller" theory is not
-supported by the evidence, and shrinking further may not help.
+Between the two failures the page shrank 37.5% and `l1GasUsed` /
+`blobGasUsed` both fell to ~67%, but `gasUsed` stayed bit-identical. That
+is consistent with running out of gas at *both* sizes; it does not mean
+size is irrelevant. An earlier estimate of 625 gas/byte here was simply too
+low, which is why 23,468 bytes still failed.
 
-Note `cumulativeGasUsed` was 37.6M and 47.9M on those blocks, so 2^24 is a
-**transaction** cap in the uploader, not a protocol limit.
+**Keep the built file under ~8,000 bytes.** That is the only figure backed
+by a successful upload. Anything larger is untested and may revert.
 
-### Narrowing it down
+Note `cumulativeGasUsed` on those blocks was 37.6M and 47.9M, so 2^24 is a
+cap in the uploader, not a protocol limit. If it can be raised, a larger
+page becomes possible and `page.min.html` is ready for that.
 
-Upload `test.min.html` (487 bytes) first. It splits the remaining
-possibilities cleanly:
+## Constraints
 
-- **It uploads** — size is the axis after all, and the threshold sits
-  somewhere under 23KB. Try `lite.min.html` (7KB) next, then `page.min.html`.
-- **It fails identically**, still burning exactly 16,777,216 — the page
-  content is irrelevant and no amount of shrinking will fix it. The cause is
-  the transaction or the contract call: wrong entry point, an upload that
-  expects to be chunked across several transactions, or a gas cap set too
-  low for any write.
+No external dependencies: inline `<style>`, inline `<script>`, no image
+files, system fonts only. The only outbound URLs are hyperlinks (pools.fun,
+bankr.bot, opensea.io).
 
-In the second case, worth asking the platform:
+The sprite is drawn to a `<canvas>` from a text grid rather than embedded as
+a Base64 image — cheaper, and sharp at any size.
 
-1. Is a page written in one transaction, or appended in chunks?
-2. What gas limit does the uploader set, and can it be raised?
-3. What is the largest page anyone has successfully stored?
-
-Investigation from here was limited by network policy: this environment
-blocks egress to basescan.org, pools.fun, dexscreener and every public Base
-RPC, so the contract at `0x04d7c8b512d5455e20df1e808f12cad1e3d766e5` could
-not be inspected, gas could not be estimated, and the real revert reason
-could not be recovered.
+`lite.min.html` is pure ASCII apart from a few punctuation characters. The
+larger `page.min.html` contains a 4-byte emoji, which is untested against
+this uploader.
 
 ## Before launch
 
 `IMG` at the top of the `<script>` in `index.html` optionally takes a Base64
-data URI of the real NFT art in place of the drawn sprite. Export at 32x32 —
-the 512x512 PNG costs several KB. Re-run `python3 build.py` after editing.
-
-## Constraints
-
-No external dependencies: inline CSS, inline JS, no image files, system
-fonts only. The only outbound URLs are hyperlinks (pools.fun, bankr.bot,
-opensea.io). All three pages verified rendering with no console errors and
-no horizontal overflow.
+data URI of the real NFT art in place of the drawn sprite. Export at 32x32.
+Re-run `python3 build.py` after editing.
