@@ -19,13 +19,21 @@ python3 build.py
 
 ## Fee mechanics on the page
 
+Framed as a bong, since the mascot is called Bud and the sprite already
+has smoke coming off it.
+
 **ETH fee income**
 
-- 50% — buy & burn $BNKR: spot buy pressure, permanent reduction of circulating float
-- 40% — $BNKR/ETH liquidity: deepens pool depth
-- 10% — agent ops: gas, compute and tooling for onchain activity
+- 50% — *the weed*: buys $BNKR on the open market and burns it. Spot buy
+  pressure, permanently out of the float.
+- 40% — *the bong water*: $BNKR/ETH liquidity. Deeper water, smoother pull.
+- 10% — *the lighter*: agent ops — gas, compute, tooling.
 
-**$BNKRBUD fee income** — tipped out on Twitter and airdropped to $BNKRBUD holders.
+**$BNKRBUD fee income** — tipped out on Twitter and airdropped to $BNKRBUD
+holders. Puff, puff, pass.
+
+The metaphor sits on top of the real mechanics; every percentage still
+states what it actually does.
 
 The page states the splits and their direct effects only. Claims that
 depend on unverified implementation details (how dev incentives tie to LP
