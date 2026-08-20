@@ -4,16 +4,15 @@ Minify index.html -> page.min.html for onchain upload.
 
 Edit index.html (readable). Run `python3 build.py`. Upload page.min.html.
 
-Onchain pages are billed per byte of storage, so the readable source is the
-thing you maintain and the minified file is the thing you pay for. Nothing
-here changes behaviour: comments and whitespace go, code does not.
+Onchain pages are billed per byte, and the uploader's gas cap bites at
+roughly 8KB, so the readable source is what you maintain and the minified
+file is what you upload. Nothing here changes behaviour: comments and
+whitespace go, code does not.
 """
 import re, sys, pathlib
 
 HERE = pathlib.Path(__file__).parent
-# source -> upload artifact
-TARGETS = {"index.html": "page.min.html", "lite.html": "lite.min.html",
-           "test.html": "test.min.html"}
+TARGETS = {"index.html": "page.min.html"}   # source -> upload artifact
 
 
 def strip_js_comments(js: str) -> str:
